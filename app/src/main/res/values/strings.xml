@@ -10,4 +10,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_about">About</string>
+
+    <string name="company_name">9 Fruit Creative Team</string>
+    <string name="company_email">contactnineteam@gmail.com</string>
 </resources>
