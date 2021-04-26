@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "647651240152",
+    "project_id": "fcn-minner",
+    "storage_bucket": "fcn-minner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647651240152:android:84ee898032d18612010fad",
+        "android_client_info": {
+          "package_name": "com.andflow.fcnminner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647651240152-kfl4pg6q8q1855d6hd0plp2eav4bq402.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXHdiucDzWMs2hoKIi4Y3ZB1DgJySiURo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647651240152-kfl4pg6q8q1855d6hd0plp2eav4bq402.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

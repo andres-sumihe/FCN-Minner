@@ -18,7 +18,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:background=""/>
+            android:background="@null"/>
         <TextView
             android:id="@+id/TextView1"
             android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Crypto"
+            android:text="FruitCoin"
             android:textSize="18dp"
             android:textStyle="bold"/>
 
@@ -35,7 +35,7 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_gravity="center"
-            android:background=""/>
+            android:background="@null"/>
 
         <TextView
             android:id="@+id/TextView2"
@@ -47,18 +47,18 @@
             android:textSize="16dp"/>
 
         <EditText
-            android:id="@+id/txt_username"
+            android:id="@+id/txtFullnameRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:hint="Username"
+            android:hint="Fullname"
             android:textColorHint="#20B2AA"
-            android:inputType="textEmailAddress"
+            android:inputType=""
             android:singleLine="true"/>
 
         <EditText
-            android:id="@+id/txt_EmailAdress"
+            android:id="@+id/txtEmailAddressRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -69,7 +69,7 @@
             android:singleLine="true"/>
 
         <EditText
-            android:id="@+id/txt_password"
+            android:id="@+id/txtPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -80,7 +80,7 @@
             android:singleLine="true"/>
 
         <EditText
-            android:id="@+id/txt_confirm_password"
+            android:id="@+id/txtConfirmPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -88,8 +88,9 @@
             android:layout_margin="10dp"
             android:hint="Confirmation Password"
             android:password="true"/>
+
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btnRegister"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -100,7 +101,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@id/btn_login"
+            android:id="@+id/btnChangeToLogin"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
