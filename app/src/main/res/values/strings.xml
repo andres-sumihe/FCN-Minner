@@ -14,4 +14,7 @@
 
     <string name="company_name">9 Fruit Creative Team</string>
     <string name="company_email">contactnineteam@gmail.com</string>
+    <string name="about_about">About Us</string>
+    <string name="about_contact">Contact Us</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

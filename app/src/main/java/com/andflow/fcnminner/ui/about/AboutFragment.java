@@ -16,20 +16,29 @@ import com.andflow.fcnminner.R;
 
 public class AboutFragment extends Fragment {
 
-    private AboutViewModel homeViewModel;
+    private AboutViewModel aboutViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
+        aboutViewModel =
                 new ViewModelProvider(this).get(AboutViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        View root = inflater.inflate(R.layout.fragment_about, container, false);
+        final TextView textView = root.findViewById(R.id.textDescriptionAbout);
+        final TextView contactTextView = root.findViewById(R.id.contactList);
+        aboutViewModel.getDescText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
         });
+
+        aboutViewModel.getContactText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                contactTextView.setText(s);
+            }
+        });
+
         return root;
     }
 }
