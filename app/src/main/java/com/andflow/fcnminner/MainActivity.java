@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+
         if(mAuth.getCurrentUser() != null){
             userID = mAuth.getCurrentUser().getUid();
             DocumentReference documentReference = fStore.collection("users").document(userID);
@@ -72,18 +73,22 @@ public class MainActivity extends AppCompatActivity {
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                     txtFullname = findViewById(R.id.textViewFullnameAccount);
                     txtEmail = findViewById(R.id.textViewEmailAccount);
-                    txtFullname.setText(value.getString("fullName"));
-                    txtEmail.setText(value.getString("email"));
+                    if(txtFullname != null){
+                        txtFullname.setText(value.getString("fullName"));
+                        txtEmail.setText(value.getString("email"));
+                    }else{
+                        startActivity(new Intent(getApplicationContext(), Login.class));
+                    }
                 }
             });
         }
+
 
     }
 
     public void logout(){
         startActivity(new Intent(getApplicationContext(), Login.class));
         FirebaseAuth.getInstance().signOut();
-        finish();
     }
 
     @Override
