@@ -100,12 +100,7 @@ public class Register extends AppCompatActivity {
                             user.put("address", md5.md5(email));
                             user.put("balance", 0.0001);
                             documentReference.set(user);
-                            Intent intent = new Intent(Register.this, MainActivity.class);
-                            intent.putExtra("fullName", fullname);
-                            intent.putExtra("email", email);
-                            intent.putExtra("address", md5.md5(email));
-                            intent.putExtra("balance", "0,0001");
-                            startActivity(intent);
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }else{
                             Toast.makeText(Register.this, "Email is registered", Toast.LENGTH_SHORT).show();
                         }
