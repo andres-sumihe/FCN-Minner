@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">FCN Minner</string>
+    <string name="navigation_drawer_open">Cajón de navegación abierto</string>
+    <string name="navigation_drawer_close">Cajón de navegación de cierre</string>
+    <string name="nav_header_title">Estudio Android</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Encabezado de navegación</string>
+    <string name="action_settings">Cerrar sesión</string>
+
+    <string name="menu_home">Hogar</string>
+    <string name="menu_gallery">Verificación de correo electrónico</string>
+    <string name="menu_slideshow">Presentación de diapositivas</string>
+    <string name="menu_about">Acerca de</string>
+
+    <string name="company_name">9 Equipo creativo de frutas</string>
+    <string name="company_email">contactnineteam@gmail.com</string>
+    <string name="about_about">Sobre nosotros</string>
+    <string name="about_contact">Contáctenos</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="balanceTittle">Equilibrar</string>
+    <string name="hashTitle">H/S</string>
+    <string name="currentTitle">Ganancias corrientes</string>
+
+</resources>
