@@ -1,6 +1,8 @@
 package com.andflow.fcnminner;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -31,20 +34,22 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore fStore;
     TextView txtFullname, txtEmail;
     String userID;
+    MenuItem menuItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -59,27 +64,41 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-
-        userID = mAuth.getCurrentUser().getUid();
-        DocumentReference documentReference = fStore.collection("users").document(userID);
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                txtFullname = findViewById(R.id.textViewFullnameAccount);
-                txtEmail = findViewById(R.id.textViewEmailAccount);
-                txtFullname.setText(value.getString("fullName"));
-                txtEmail.setText(value.getString("email"));
-            }
-        });
+        if(mAuth.getCurrentUser() != null){
+            userID = mAuth.getCurrentUser().getUid();
+            DocumentReference documentReference = fStore.collection("users").document(userID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    txtFullname = findViewById(R.id.textViewFullnameAccount);
+                    txtEmail = findViewById(R.id.textViewEmailAccount);
+                    txtFullname.setText(value.getString("fullName"));
+                    txtEmail.setText(value.getString("email"));
+                }
+            });
+        }
 
     }
 
+    public void logout(){
+        startActivity(new Intent(getApplicationContext(), Login.class));
+        FirebaseAuth.getInstance().signOut();
+        finish();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.action_settings)
+            logout();
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
