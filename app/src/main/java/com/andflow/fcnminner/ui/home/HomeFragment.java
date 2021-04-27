@@ -41,31 +41,31 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        OkHttpClient client = new OkHttpClient();
-
-        Request request = new Request.Builder()
-                .url("https://currencyapi-net.p.rapidapi.com/currencies?output=JSON")
-                .get()
-                .addHeader("x-rapidapi-key", "3581c2a659msha5d31bc133fd9e4p11e2f9jsnb8fca9a1567e")
-                .addHeader("x-rapidapi-host", "currencyapi-net.p.rapidapi.com")
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Request request, IOException e) {
-
-            }
-
-            @Override
-            public void onResponse(Response response) throws IOException {
-                if(response.isSuccessful()){
-                    String myResponse = response.body().string();
-                    TextView txt = (TextView) root.findViewById(R.id.bitcoinRate);
-//                    txt.setText(myResponse);
-                }
-            }
-
-        });
+//        OkHttpClient client = new OkHttpClient();
+//
+//        Request request = new Request.Builder()
+//                .url("https://currencyapi-net.p.rapidapi.com/currencies?output=JSON")
+//                .get()
+//                .addHeader("x-rapidapi-key", "3581c2a659msha5d31bc133fd9e4p11e2f9jsnb8fca9a1567e")
+//                .addHeader("x-rapidapi-host", "currencyapi-net.p.rapidapi.com")
+//                .build();
+//
+//        client.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Request request, IOException e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(Response response) throws IOException {
+//                if(response.isSuccessful()){
+//                    String myResponse = response.body().string();
+//                    TextView txt = (TextView) root.findViewById(R.id.bitcoinRate);
+////                    txt.setText(myResponse);
+//                }
+//            }
+//
+//        });
 
 
         Button start = (Button) root.findViewById(R.id.startHash);
@@ -81,8 +81,8 @@ public class HomeFragment extends Fragment {
                         currentHash = root.findViewById(R.id.currentHash);
                         hashPerSecond = root.findViewById(R.id.hashPerSecond);
                         long diff = maxCounter - millisUntilFinished;
-                        currentHash.setText(String.format("%.4l", diff  / 32132 )+"");
-                        hashPerSecond.setText( String.format("%.2l",1+rand.nextDouble())+ " GH/s");
+                        currentHash.setText(String.format("%.4f", Float.parseFloat(diff  / 32132 +"" ))+"");
+                        hashPerSecond.setText( String.format("%.2f", Float.parseFloat(1+rand.nextDouble()+""))+ " GH/s");
                     }
 
                     public void onFinish() {

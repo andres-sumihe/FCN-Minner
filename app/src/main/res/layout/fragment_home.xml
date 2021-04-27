@@ -8,7 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="387dp"
+        android:layout_width="match_parent"
+        android:padding="@dimen/activity_vertical_margin"
         android:layout_height="256dp"
         android:layout_marginHorizontal="@dimen/activity_vertical_margin"
         android:orientation="vertical"
@@ -95,29 +96,29 @@
             android:text="Minning" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="377dp"
-        android:layout_height="113dp"
-        android:layout_marginHorizontal="@dimen/activity_vertical_margin"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+<!--&lt;!&ndash;    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="377dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="113dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginHorizontal="@dimen/activity_vertical_margin"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:orientation="vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">&ndash;&gt;-->
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:textAlignment="center"
-            android:textSize="32sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bitcoin Rate" />
-        <TextView
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:id="@+id/bitcoinRate"
-            android:textSize="24sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/textView4"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="@dimen/activity_vertical_margin"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="32sp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="Bitcoin Rate" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="@dimen/activity_vertical_margin"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/bitcoinRate"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="24sp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content" />&ndash;&gt;-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
