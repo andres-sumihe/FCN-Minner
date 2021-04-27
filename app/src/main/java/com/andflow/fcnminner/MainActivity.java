@@ -81,12 +81,11 @@ public class MainActivity extends AppCompatActivity {
                         TextView balance = findViewById(R.id.text_saldo_amount);
                         txtFullname.setText(value.getString("fullName"));
                         txtEmail.setText(value.getString("email"));
-                        balance.setText(value.getString("balance").toString()+" FNC");
+                        balance.setText(String.format("%.4f", value.get("balance")) +" FNC");
                     }
                 }
             });
         }
-
 
     }
 
