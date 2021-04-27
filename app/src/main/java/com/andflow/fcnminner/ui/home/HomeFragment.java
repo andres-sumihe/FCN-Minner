@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
                 if(response.isSuccessful()){
                     String myResponse = response.body().string();
                     TextView txt = (TextView) root.findViewById(R.id.bitcoinRate);
-                    txt.setText(myResponse);
+//                    txt.setText(myResponse);
                 }
             }
 
@@ -81,8 +81,8 @@ public class HomeFragment extends Fragment {
                         currentHash = root.findViewById(R.id.currentHash);
                         hashPerSecond = root.findViewById(R.id.hashPerSecond);
                         long diff = maxCounter - millisUntilFinished;
-                        currentHash.setText(String.format("%.4f", diff  / 32132 )+"");
-                        hashPerSecond.setText( String.format("%.2f",1+rand.nextDouble())+ " GH/s");
+                        currentHash.setText(String.format("%.4l", diff  / 32132 )+"");
+                        hashPerSecond.setText( String.format("%.2l",1+rand.nextDouble())+ " GH/s");
                     }
 
                     public void onFinish() {
