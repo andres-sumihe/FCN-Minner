@@ -32,7 +32,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        MD5Hash md5 = new MD5Hash();
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         txtFullname = findViewById(R.id.txtFullnameRegister);
@@ -97,6 +97,8 @@ public class Register extends AppCompatActivity {
                             Map<String,Object> user = new HashMap<>();
                             user.put("fullName", fullname);
                             user.put("email", email);
+                            user.put("address", md5.md5(email));
+                            user.put("balance", 0.0001);
                             documentReference.set(user);
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }else{

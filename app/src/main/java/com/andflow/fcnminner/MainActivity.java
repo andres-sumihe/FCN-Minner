@@ -72,14 +72,16 @@ public class MainActivity extends AppCompatActivity {
             documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                    if(error != null){
-                        Log.d("Error In Main","Error:"+error.getMessage());
-                        startActivity(new Intent(getApplicationContext(), Login.class));
+                    if (error != null) {
+                        Log.w("ErrorListen", "Listen failed.", error);
+                        return;
                     }else{
                         txtEmail = findViewById(R.id.textViewEmailAccount);
                         txtFullname = findViewById(R.id.textViewFullnameAccount);
+                        TextView balance = findViewById(R.id.text_saldo_amount);
                         txtFullname.setText(value.getString("fullName"));
                         txtEmail.setText(value.getString("email"));
+                        balance.setText(value.getString("balance").toString()+" FNC");
                     }
                 }
             });
