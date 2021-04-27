@@ -2,6 +2,7 @@ package com.andflow.fcnminner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -71,13 +72,14 @@ public class MainActivity extends AppCompatActivity {
             documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                    txtFullname = findViewById(R.id.textViewFullnameAccount);
-                    txtEmail = findViewById(R.id.textViewEmailAccount);
-                    if(txtFullname != null){
+                    if(error != null){
+                        Log.d("Error In Main","Error:"+error.getMessage());
+                        startActivity(new Intent(getApplicationContext(), Login.class));
+                    }else{
+                        txtEmail = findViewById(R.id.textViewEmailAccount);
+                        txtFullname = findViewById(R.id.textViewFullnameAccount);
                         txtFullname.setText(value.getString("fullName"));
                         txtEmail.setText(value.getString("email"));
-                    }else{
-                        startActivity(new Intent(getApplicationContext(), Login.class));
                     }
                 }
             });
