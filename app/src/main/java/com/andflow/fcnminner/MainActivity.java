@@ -62,14 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //Variabel dari Intent
-        Intent intent = getIntent();
-        String fullname = intent.getStringExtra("fullName");
-        String email = intent.getStringExtra("email");
-        String address = intent.getStringExtra("address");
-        String balance = intent.getStringExtra("balance");
-
-
         if(mAuth.getCurrentUser() != null){
             userID = mAuth.getCurrentUser().getUid();
             DocumentReference documentReference = fStore.collection("users").document(userID);
@@ -102,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
     public void logout(){
         startActivity(new Intent(getApplicationContext(), Login.class));
         FirebaseAuth.getInstance().signOut();
-        finish();
 
     }
 
