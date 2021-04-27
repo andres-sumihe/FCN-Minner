@@ -2,10 +2,12 @@ package com.andflow.fcnminner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,33 +30,28 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
-    TextView txtFullname, txtEmail;
+    TextView txtFullname, txtEmail, currentHash, hashPerSecond;
     String userID;
     MenuItem menuItem;
+    Random rand = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        mAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_about)
                 .setDrawerLayout(drawer)
@@ -63,8 +60,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        mAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+
 
         if(mAuth.getCurrentUser() != null){
             userID = mAuth.getCurrentUser().getUid();
@@ -79,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
                         txtEmail = findViewById(R.id.textViewEmailAccount);
                         txtFullname = findViewById(R.id.textViewFullnameAccount);
                         TextView balance = findViewById(R.id.text_saldo_amount);
+//                        txtFullname.setText(value.getString("fullName"));
+//                        txtEmail.setText(value.getString("email"));
+//                        balance.setText(String.format("%.4f", Float.parseFloat(
+//                                value.get("balance").toString())).replaceAll(",",".") +" FNC");
                         txtFullname.setText(value.getString("fullName"));
                         txtEmail.setText(value.getString("email"));
 
