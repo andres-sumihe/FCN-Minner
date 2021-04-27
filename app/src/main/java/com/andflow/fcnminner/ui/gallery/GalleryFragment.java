@@ -40,8 +40,9 @@ public class GalleryFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
         final TextView textView2 = root.findViewById(R.id.text_gallery2);
+        final TextView textView3 = root.findViewById(R.id.text_gallery3);
+        final TextView textView4 = root.findViewById(R.id.text_gallery4);
         final Button buttonVerify = root.findViewById(R.id.buttonVerify);
-        textView2.setText("Fullname "+"   : "+"Sean Alessandro Pattirane");
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         FirebaseUser fuser = mAuth.getCurrentUser();
@@ -50,7 +51,9 @@ public class GalleryFragment extends Fragment {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                textView2.setText(value.getString("fullName"));
+                textView2.setText("Fullname     : "+value.getString("fullName"));
+                textView3.setText("Email        : "+value.getString("email"));
+                textView4.setText("Address      : "+value.getString("address"));
             }
         });
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -73,7 +76,7 @@ public class GalleryFragment extends Fragment {
                 fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //Toast gak jadi
+                        //Toast
                     }
                 });
             }
